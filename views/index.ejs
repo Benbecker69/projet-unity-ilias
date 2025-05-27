@@ -1,13 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title><%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet Unity Ilias</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>Bienvenue sur le projet Unity Ilias</h1>
-  <p>Application prête à être migrée sur Azure</p>
-  <a href="/status">Voir le statut JSON</a>
+  <div class="container">
+    <h1>Bienvenue sur <span>Projet Unity Ilias</span></h1>
+    <p class="author">par Ilias BENHARRAT</p>
+    <div class="buttons">
+      <a class="btn" href="/status">Voir le statut</a>
+      <a class="btn linkedin" href="https://www.linkedin.com/in/ilias-benharrat-285804234/" target="_blank">💼 Mon LinkedIn</a>
+      <button class="btn" onclick="changeTheme()">🎨 Changer de couleur</button>
+    </div>
+  </div>
+
+  <script>
+    const themes = [
+      { bg: 'linear-gradient(to bottom right, #0f172a, #1e293b)', accent: '#10b981' },
+      { bg: 'linear-gradient(to bottom right, #1a1c40, #2e1065)', accent: '#c084fc' },
+      { bg: 'linear-gradient(to bottom right, #1e3a8a, #2563eb)', accent: '#facc15' },
+      { bg: 'linear-gradient(to bottom right, #0f172a, #0d9488)', accent: '#22d3ee' },
+      { bg: 'linear-gradient(to bottom right, #2f3e46, #354f52)', accent: '#84a98c' }
+    ];
+
+    function changeTheme() {
+      const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+      document.body.style.background = randomTheme.bg;
+      document.querySelector('h1 span').style.color = randomTheme.accent;
+    }
+  </script>
 </body>
 </html>
